@@ -5,7 +5,7 @@ import BuyResidentialsPage from "@/template/BuyResidentialsPage";
 
 async function buyResidential({ searchParams }) {
 
-    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/profile`, {
+    const res = await fetch(`http://localhost:3000/api/profile`, {
         cache: "no-store"
     })
 
