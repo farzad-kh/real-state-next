@@ -2,26 +2,319 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-weight: 200;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+html,
+body {
+  max-width: 1200px;
+  overflow-x: hidden;
+  margin: auto;
+  padding: 0 10px;
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 32px 0 #fff, -32px 0 #fff;
+  position: relative;
+  animation: flash 0.5s ease-out infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    background-color: #a2a2a2;
+    box-shadow: 32px 0 #a2a2a2, -32px 0 #3174dc;
+  }
+
+  50% {
+    background-color: #3174dc;
+    box-shadow: 32px 0 #a2a2a2, -32px 0 #a2a2a2;
+  }
+
+  100% {
+    background-color: #a2a2a2;
+    box-shadow: 32px 0 #3174dc, -32px 0 #a2a2a2;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.loader2 {
+  font-size: 5px;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.1s infinite ease;
+  transform: translateZ(0);
 }
+
+@keyframes mulShdSpin {
+
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #fff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #fff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #fff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #fff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #fff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #fff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #fff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #fff;
+  }
+}
+
+
+
+
+/* HTML: <div class="loader"></div> */
+.loading {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  background: linear-gradient(90deg, #000 50%, #0000 0) right/200% 100%;
+  animation: l21 2s infinite linear;
+}
+
+.loading::before {
+  content: "Loading...";
+  color: #0000;
+  padding: 0 5px;
+  background: inherit;
+  background-image: linear-gradient(90deg, #fff 50%, #000 0);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes l21 {
+  100% {
+    background-position: left
+  }
+}
+
+
+
+.formControl {
+  position: relative;
+  padding-bottom: 1.2rem;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+  
+
+@media screen and (max-width: 640px) {
+  .formControl{
+    width: 100%;
+  } 
+  .textarea{
+    width: 100%;
+  } 
+}
+
+.formControl input {
+  border: 1px solid rgba(153,189,193,.757);
+  border-radius: 4px;
+  padding: 5px 10px;
+  outline: 0;
+  margin-top: 10px;
+
+
+  position: relative;
+  height: 37px;
+  transition: all 250ms;
+
+}
+.formControl textarea {
+  border: 1px solid rgba(153,189,193,.757);
+  border-radius: 4px;
+  padding: 5px 10px;
+  outline: 0;
+  margin-top: 10px;
+
+
+  position: relative;
+  height: 200px;
+  transition: all 250ms;
+
+}
+
+
+.textarea{
+  border: 1px solid rgba(153,189,193,.757);
+  border-radius: 4px;
+  padding: 5px 10px;
+  outline: 0;
+  width: 50%;
+}
+
+
+.labeltop {
+  top: -4px !important;
+  font-size: 13.5px !important;
+  color: #080808 !important;
+  background: #fff;
+  padding: 0 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-weight: 400
+
+
+}
+
+
+.formControl input:focus~.textLabel,.formControl textarea:focus~.textLabel {
+  top: -4px;
+  font-size: 13.5px;
+  color: #080808;
+  background: #fff;
+  padding: 0 5px;
+  font-weight: 400;
+  transition: 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  
+}
+
+.formControl input:focus,.formControl textarea:focus {
+  border: 2px solid #3498db;
+}
+
+.formControl input:focus~.textLabel,.formControl textarea:focus~.textLabel  {
+  top: -4px;
+  font-size: 13.5px;
+  color: #080808;
+  background: #fff;
+  padding: 0 5px;
+  transition: 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+}
+
+
+.formControl .textLabel {
+  color: #8d8d8d;
+  display: block;
+  margin-bottom: 5px;
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  font-size: .9rem;
+right: 12px;
+  z-index: 10;
+  transition: all 150ms linear;
+}
+
+
+.loaderBtn {
+  width: 19px;
+  height: 19px;
+  border: 3px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;position: relative;top: 4px;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
+
+  .radio-button {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 6px 8px;
+    border-radius: 8px;
+    position: relative;
+    align-items: center;
+    color: white;
+cursor: pointer;
+   margin-left: 16px;
+  }
+  
+  .radio-button input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .radio {
+    position: relative;
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+
+    transform: translateZ(-25px);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .radio::before {
+    position: absolute;
+    content: '';
+    width: 8.5px;
+    height: 8.5px;
+    top: 4.5px;
+    left: 4.5px;
+    border-radius: 50%;
+    background-color: #4bb4dd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .radio-button input[type="radio"]:checked + .radio {
+    border-color: #4e9dd6;
+    transform: translateZ(0px);
+    background-color: #fff;
+  }
+  .radio-button input[type="radio"]:checked + .radio::before {
+    opacity: 1;
+  }
+  
