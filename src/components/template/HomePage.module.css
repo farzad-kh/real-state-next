@@ -44,13 +44,15 @@
 
 .categories {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   margin: 50px 0;
+  gap: 20px;
 }
 
 .city {
   margin: 100px 0;
+
 }
 
 .city h3 {
@@ -62,10 +64,12 @@
 
 .city ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 50px;
   list-style: none;
+  gap: 16px;
+
 }
 
 .city li {
@@ -79,6 +83,7 @@
   align-items: center;
   padding: 10px;
   border-radius: 10px;
+
 }
 
 .city span {
