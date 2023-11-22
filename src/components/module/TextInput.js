@@ -1,6 +1,6 @@
+
 import { p2e } from "@/utils/replaceNumber";
 import styles from "@/module/TextInput.module.css";
-
 const TextInput = ({
   title,
   name,
@@ -17,26 +17,7 @@ const TextInput = ({
   };
 
   return (
-    // <div className={styles.container}>
-    //   <p>{title}</p>
-    //   {textarea ? (
-    //     <textarea
-    //       type="text"
-    //       name={name}
-    //       value={profileData?.[name]}
-    //       onChange={changeHandler}
-    //     />
-    //   ) : (
-    //     <input
-    //       type="text"
-    //       name={name}
-    //       value={profileData?.[name]}
-    //       onChange={changeHandler}
-    //     />
-    //   )}
-    // </div>
-
-
+  
     <>
 
       {textarea ?
@@ -51,7 +32,7 @@ const TextInput = ({
             id={name}
 
             autoComplete="off" />
-          <label className={`textLabel  ${profileData?.[name].length > 0 && "labeltop "}`} htmlFor={title}>{title}</label>
+          <label className={`textLabel  ${profileData?.[name] && "labeltop "}`} htmlFor={title}>{title}</label>
         </div>
         :
         <div className="formControl">
@@ -64,7 +45,7 @@ const TextInput = ({
             id={name}
 
             autoComplete="off" />
-          <label className={`textLabel  ${profileData?.[name].length > 0 && "labeltop "}`} htmlFor={title}>{title}</label>
+          <label className={`textLabel  ${profileData?.[name] && "labeltop "}`} htmlFor={title}>{title}</label>
         </div>
 
       }
