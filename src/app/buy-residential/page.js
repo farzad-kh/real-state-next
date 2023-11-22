@@ -9,8 +9,8 @@ async function buyResidential({ searchParams }) {
     //     cache: "no-store"
     // })
 
-    const data = []
-    // const profiles = await Profile.find().select("-userId");
+    const profiles = await Profile.find().select("-userId");
+    const data = [...profiles]
 
 
     const publish = data?.data?.filter(item => item.published === true)
