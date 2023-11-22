@@ -1,29 +1,30 @@
 import Profile from "@/models/Profile";
 import BuyResidentialsPage from "@/template/BuyResidentialsPage";
+import connectDB from "@/utils/connectDB";
 
 
 
 async function buyResidential({ searchParams }) {
 
-    const res = await fetch(`http://localhost:3000/api/profile`, {
-        cache: "no-store"
-    })
-
-    const data = await res.json()
-    // const profiles = await Profile.find().select("-userId");
-
-
-    const publish = data?.data?.filter(item => item.published === true)
-    const filterData = publish.filter(item => item.category === searchParams?.category)
+    // const res = await fetch(`http://localhost:3000/api/profile`, {
+    //     cache: "no-store"
+    // })
+    connectDB()
+    const profiles = await Profile?.find()?.select("-userId");
+    const data = profiles
 
 
-    if (data.error) return <h3>مشکلی پیش امده است</h3>
+    const publish = data?.filter(item => item.published === true)
+    const filterData = publish?.filter(item => item.category === searchParams?.category)
+
+
+    
     return (
         <div>
 
             <BuyResidentialsPage data={
 
-                searchParams.category ? filterData : publish
+                searchParams.category !== undefined ? filterData : publish
 
             } />
         </div>

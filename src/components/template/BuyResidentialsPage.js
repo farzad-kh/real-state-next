@@ -10,9 +10,9 @@ function BuyResidentialsPage({ data }) {
     <div className={styles.container}>
       <div className={styles.sidebar}><Sidebar/></div>
         <div className={styles.main}>
-          {data.length ===0 && <p className={styles.text}>هیچ اگهی ثبت نشده است</p>}
+          {data?.length ===0 && <p className={styles.text}>هیچ اگهی ثبت نشده است</p>}
           {/* <Sidebar /> */}
-          {data.map(item=> <Card key={item._id} data={item}/>)}
+          {data?.map(item=> <Card key={item._id} data={item}/>)}
         </div>
    
 
