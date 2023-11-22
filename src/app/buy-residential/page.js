@@ -9,23 +9,20 @@ async function buyResidential({ searchParams }) {
     //     cache: "no-store"
     // })
 
+    // const data = await res.json()
     const profiles = await Profile.find().select("-userId");
-    const data = [...profiles]
+    console.log(profiles);
+    let data = [...profiles]
+    const publish = data?.data?.filter(item => item?.published === true)
+    const filterData = publish?.filter(item => item?.category === searchParams?.category)
 
 
-    const publish = data?.data?.filter(item => item.published === true)
-    const filterData = publish.filter(item => item.category === searchParams?.category)
-
-
-    if (data.error) return <h3>مشکلی پیش امده است</h3>
+    // if (data.error) return <h3>مشکلی پیش امده است</h3>
     return (
         <div>
 
-            <BuyResidentialsPage data={
-
-                searchParams.category ? filterData : publish
-
-            } />
+            <BuyResidentialsPage data={ data}
+            />
         </div>
     );
 };
