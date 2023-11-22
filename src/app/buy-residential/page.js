@@ -5,7 +5,7 @@ import BuyResidentialsPage from "@/template/BuyResidentialsPage";
 
 async function buyResidential({ searchParams }) {
 
-    const res = await fetch("http://localhost:3000/api/profile", {
+    const res = await fetch("http://127.0.0.1:3000/api/profile", {
         cache: "no-store"
     })
 
