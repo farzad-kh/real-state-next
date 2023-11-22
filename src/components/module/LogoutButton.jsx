@@ -6,7 +6,7 @@ import styles from "@/module/LogoutButton.module.css";
 const LogoutButton = () => {
   return (
     <div>
-      <button className={styles.button} onClick={()=>signOut({ callbackUrl: 'http://127.0.0.1:3000/' })}>
+      <button className={styles.button} onClick={()=>signOut({ callbackUrl: process.env.NEXTAUTH_URL })}>
         <FiLogOut />
         خروج
       </button>
