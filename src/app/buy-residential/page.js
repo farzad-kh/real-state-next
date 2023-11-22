@@ -5,7 +5,7 @@ import BuyResidentialsPage from "@/template/BuyResidentialsPage";
 
 async function buyResidential({ searchParams }) {
 
-    const res = await fetch( process.env.NEXTAUTH_URL + "/api/profile", {
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/profile`, {
         cache: "no-store"
     })
 
@@ -14,7 +14,7 @@ async function buyResidential({ searchParams }) {
 
 
     const publish = data?.data?.filter(item => item.published === true)
-    const filterData =publish.filter(item => item.category === searchParams?.category)
+    const filterData = publish.filter(item => item.category === searchParams?.category)
 
 
     if (data.error) return <h3>مشکلی پیش امده است</h3>
