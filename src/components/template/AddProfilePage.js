@@ -32,14 +32,13 @@ const AddProfilePage = ({ data }) => {
         }
     }, [data])
     const router = useRouter()
-    console.log(data);
-    //  const a=  Object.values(profileData).every(value => value !== "" && value !== null && value !== undefined);
-    //  console.log(a);
+
+
     const submitHandler = async () => {
         setIsLoading(true)
         if (isNaN(profileData.price)) {
             toast.error("لطفا قیمت را درست وارد کنید");
-            console.log(isNaN(profileData.price));
+         
             setIsLoading(false);
             return
         }
@@ -68,7 +67,7 @@ const AddProfilePage = ({ data }) => {
         setIsLoading(true)
         if (isNaN(profileData.price)) {
             toast.error("لطفا قیمت را درست وارد کنید");
-            console.log(isNaN(profileData.price));
+     
             setIsLoading(false);
             return
         }

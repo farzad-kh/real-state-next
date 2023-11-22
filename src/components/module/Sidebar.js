@@ -9,7 +9,7 @@ function Sidebar() {
   const params = useSearchParams()
   const urlParams = new URLSearchParams(params);
   const category = urlParams.get("category")
-  console.log(category);
+
   return (
     <div className={styles.container}>
       <p>
@@ -17,7 +17,7 @@ function Sidebar() {
         دسته بندی
       </p>
       <Link className={`${!category ? "font-semibold !text-[cornflowerblue]" : ""}`} href="/buy-residential">همه</Link>
-      {console.log()}
+  
       {Object.keys(categories).map((i, index) => (
         <>
           <Link className={`${category === i ? "font-semibold !text-[cornflowerblue]" : ""}`}

@@ -11,11 +11,11 @@ const TextInput = ({
 }) => {
   const changeHandler = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+
   
     setProfileData({ ...profileData, [name]: p2e(value) });
   };
-console.log(profileData);
+
   return (
     // <div className={styles.container}>
     //   <p>{title}</p>

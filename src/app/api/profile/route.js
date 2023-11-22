@@ -90,7 +90,7 @@ const body = await req.json()
       price: +price,
       userId: new Types.ObjectId(user._id),
     });
-    console.log(newProfile);
+  
     return NextResponse.json(
       { message: "آگهی جدید اضافه شد" },
       { status: 201 }

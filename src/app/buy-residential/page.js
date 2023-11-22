@@ -16,7 +16,7 @@ async function buyResidential({ searchParams }) {
     const publish = data?.data?.filter(item => item.published === true)
     const filterData =publish.filter(item => item.category === searchParams?.category)
 
-console.log();
+
     if (data.error) return <h3>مشکلی پیش امده است</h3>
     return (
         <div>

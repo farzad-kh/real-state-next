@@ -64,7 +64,7 @@ function HomePage() {
           </ul>
         </div>
       </div>
-      {console.log(categories)}
+
       <div className={styles.categories}>
         {Object.keys(categories).map((item,i) => (
             <CategoryCard title={categories[item]} name={item} key={i} />

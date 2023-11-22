@@ -27,7 +27,7 @@ function AdminCard({ data: { _id, title, description, location, price } }) {
       method: "PATCH"
     })
     const result = await res.json()
-    console.log(result);
+
     if (result.message) {
       setLoadingState({ ...loadingState, publish: false })
       toast.success(result.message)
@@ -40,7 +40,7 @@ function AdminCard({ data: { _id, title, description, location, price } }) {
       method: "DELETE"
     })
     const result = await res.json()
-    console.log(result);
+  
     if (result.message) {
       setLoadingState({ ...loadingState, delete: false })
       toast.success(result.message)
