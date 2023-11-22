@@ -5,11 +5,11 @@ import BuyResidentialsPage from "@/template/BuyResidentialsPage";
 
 async function buyResidential({ searchParams }) {
 
-    const res = await fetch(`http://localhost:3000/api/profile`, {
-        cache: "no-store"
-    })
+    // const res = await fetch(`http://localhost:3000/api/profile`, {
+    //     cache: "no-store"
+    // })
 
-    const data = await res.json()
+    const data = []
     // const profiles = await Profile.find().select("-userId");
 
 
