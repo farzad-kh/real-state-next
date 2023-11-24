@@ -13,8 +13,8 @@ function RadioList({ profileData, setProfileData }) {
 
 
     <div className="flex  mt-4 mb-8 flex-col ">
-      <p>دسته بندی</p>
-      <form className="flex">
+      <p className=" font-semibold mb-3">دسته بندی</p>
+      <form className="flex max-sm:items-start max-sm:flex-col">
         <label className="radio-button">
         <span  className="text-black">ویلا</span>
           <input

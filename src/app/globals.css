@@ -160,10 +160,10 @@ textarea {
   outline: 0;
   margin-top: 10px;
 
-
+background-color: #fff;
   position: relative;
-  height: 37px;
-  transition: all 250ms;
+  height: 40px;
+  transition: all 50ms linear;
 
 }
 .formControl textarea {
@@ -176,7 +176,7 @@ textarea {
 
   position: relative;
   height: 200px;
-  transition: all 250ms;
+  transition: all 50ms linear;
 
 }
 
@@ -195,7 +195,7 @@ textarea {
   font-size: 13.5px !important;
   color: #080808 !important;
   background: #fff;
-  padding: 0 5px;
+  padding: 0 10px;
   transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   font-weight: 400
 
@@ -208,7 +208,7 @@ textarea {
   font-size: 13.5px;
   color: #080808;
   background: #fff;
-  padding: 0 5px;
+  padding: 0 8px;
   font-weight: 400;
   transition: 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
@@ -317,4 +317,24 @@ cursor: pointer;
   .radio-button input[type="radio"]:checked + .radio::before {
     opacity: 1;
   }
+
+  .formControl .er {
+    margin-top: 7px;
+    color: #e74c3c;
+    height: 0;
+    transition: 300ms;
+    visibility: hidden;
+  }
   
+  .formControl.error .er,
+  .er2 {
+    visibility: visible;
+    height: 19px;
+    font-size: 1rem;
+  }
+  
+  .formControl.error input,
+.formControl.error input:hover {
+  border-color:#e74c3c;
+
+}

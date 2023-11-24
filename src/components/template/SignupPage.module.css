@@ -18,34 +18,14 @@
     flex-direction: column;
     max-width: 700px;
     box-shadow: 0px 4px 15px rgba(185, 183, 186, 0.5); /* Adjust the color values accordingly */
-    border: 2px solid #2f84ce;
+    border: 2px solid #606972;
     padding: 40px;
     border-radius: 10px;
     margin-bottom: 30px;
+    width: 350px;
   }
-  .form label {
-    color: #66676d;
-    margin-bottom: 10px;
-    font-weight: 400;
-  }
-  
-  .form input {
-    margin-bottom: 40px;
-    width: 250px;
-    border: 1px #66676d dashed;
-    color: grey;
-    border-radius: 5px;
-    padding: 10px;
-    direction: ltr !important;
-    font-size: 1rem;
-    height: 40px;
-  }
-  
-  .form input:focus {
-    border: 1px #2f84ce solid;
-    outline: none;
-  }
-  
+
+
   .form button {
     border: none;
     background-color: #2f84ce;
