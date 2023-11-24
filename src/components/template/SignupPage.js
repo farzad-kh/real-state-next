@@ -28,16 +28,16 @@ const SignupPage = () => {
         register,
         handleSubmit,
         watch,
-    
+
         formState: { errors },
 
-    } = useForm({ resolver: zodResolver(schema)})
-    console.log(errors);
+    } = useForm({ resolver: zodResolver(schema) })
+
 
     const router = useRouter()
 
     const [isLoading, setIsLoading] = useState(false)
-    console.log(errors);
+
 
     const onSubmit = async (data) => {
 
@@ -71,18 +71,16 @@ const SignupPage = () => {
             toast.error(dataForm.error)
         }
     }
-useEffect(()=>{
-console.log(watch("email"));
-},[])
+  
 
     return (
         <div className={styles.form}>
             <h4 className='!text-slate-800 z-30'>فرم ثبت نام</h4>
 
-            <form  autoComplete="new-password"  onSubmit={handleSubmit(onSubmit)} action="/form">
+            <form autoComplete="new-password" onSubmit={handleSubmit(onSubmit)} action="/form">
 
                 <div className={`formControl !w-full ${errors?.email && "error"}`} >
-                    <input style={{background:"#fff"}}
+                    <input style={{ background: "#fff" }}
                         className="inp"
                         {...register("email")}
                         name={"email"} // assign name prop
@@ -91,7 +89,7 @@ console.log(watch("email"));
                         autoCapitalize="none"
                         autoCorrect="false"
                         aria-disabled="false"
-                         autoComplete="on" />
+                        autoComplete="on" />
                     <label className={`textLabel ${watch("email") && "labeltop"}`} htmlFor="email">ایمیل</label>
                     {/* <i className={errors.emailError ? "font-icons-aw-clear" : "font-icons-aw"}>{(errors.emailError && touched.email) && Xmark}{(!errors.emailError && touched.email) && CircleCheck}</i> */}
                     <small className="er">{errors?.email?.message}</small>
@@ -99,21 +97,21 @@ console.log(watch("email"));
                 </div>
 
                 <div className={`formControl  !w-full ${errors?.password && "error"}`} >
-                    <input style={{background:"#fff"}}
+                    <input style={{ background: "#fff" }}
                         className="inp"
                         {...register("password")}
                         name={"password"} // assign name prop
                         type="password"
                         autoCapitalize="none"
                         id="password"
-                         autoComplete="new-password"    />
+                        autoComplete="new-password" />
                     <label className={`textLabel ${watch("password") && "labeltop"}`} htmlFor="password">رمز عبور</label>
                     {/* <i className={errors.emailError ? "font-icons-aw-clear" : "font-icons-aw"}>{(errors.emailError && touched.email) && Xmark}{(!errors.emailError && touched.email) && CircleCheck}</i> */}
                     <small className="er">{errors?.password?.message}</small>
 
                 </div>
                 <div className={`formControl !w-full ${errors?.confirmPassword && "error"}`} >
-                    <input style={{background:"#fff"}}
+                    <input style={{ background: "#fff" }}
                         className="inp"
                         {...register("confirmPassword")}
                         name={"confirmPassword"} // assign name prop
