@@ -10,9 +10,19 @@ import { signIn } from 'next-auth/react';
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { z } from "zod";
+import FormInput from '@/module/FormInput';
 
 
 const SigninPage = () => {
+
+    const schema = z.object({
+        email: z.string().min(1, { message: "لطفا ایمیل را وارد کنید" }),
+        password: z.string().min(1, { message: "لطفا رمز عبور را وارد کنید" }),
+
+
+    })
+
+
     const router = useRouter()
 
     const [isLoading, setIsLoading] = useState(false)
@@ -24,14 +34,14 @@ const SigninPage = () => {
         formState: { errors },
 
     } = useForm({
-        defaultValues: {
+        resolver: zodResolver(schema), defaultValues: {
             email: '',
             password: '',
         },
     })
     const onSubmit = async (data) => {
         setIsLoading(true)
-const {email,password}=data
+        const { email, password } = data
 
         const res = await signIn("credentials", {
             email, password, redirect: false
@@ -43,7 +53,7 @@ const {email,password}=data
             setIsLoading(false)
         } else {
             router.push("/")
-            toast.success(`${email} خوشامدید`)
+            toast.success(`${email} خوش امدید`)
         }
     }
 
@@ -53,37 +63,12 @@ const {email,password}=data
             <form autoComplete="new-password" onSubmit={handleSubmit(onSubmit)} >
 
 
-                <div className={`formControl !w-full ${errors?.email && "error"}`} >
-                    <input style={{ background: "#fff" }}
-                        className="inp"
-                        {...register("email")}
-                        name={"email"} // assign name prop
-                        type="text"
-                        id="email"
-                        autoCapitalize="none"
-                        autoCorrect="false"
-                        aria-disabled="false"
-                        autoComplete="on" />
-                    <label className={`textLabel ${watch("email") && "labeltop"}`} htmlFor="email">ایمیل</label>
-                    {/* <i className={errors.emailError ? "font-icons-aw-clear" : "font-icons-aw"}>{(errors.emailError && touched.email) && Xmark}{(!errors.emailError && touched.email) && CircleCheck}</i> */}
+                <FormInput register={{ ...register("email") }}
+                    errors={errors} watch={watch} name={"email"} type={"text"} id={"email"} title={"ایمیل"} />
 
 
-                </div>
-
-                <div className={`formControl  !w-full ${errors?.password && "error"}`} >
-                    <input style={{ background: "#fff" }}
-                        className="inp"
-                        {...register("password")}
-                        name={"password"} // assign name prop
-                        type="password"
-                        autoCapitalize="none"
-                        id="password"
-                        autoComplete="new-password" />
-                    <label className={`textLabel ${watch("password") && "labeltop"}`} htmlFor="password">رمز عبور</label>
-                    {/* <i className={errors.emailError ? "font-icons-aw-clear" : "font-icons-aw"}>{(errors.emailError && touched.email) && Xmark}{(!errors.emailError && touched.email) && CircleCheck}</i> */}
-
-
-                </div>
+                <FormInput register={{ ...register("password") }}
+                    errors={errors} watch={watch} name={"password"} type={"password"} id={"password"} title={"رمز عبور"} />
 
 
 

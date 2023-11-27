@@ -9,7 +9,7 @@ async function buyResidential({ searchParams }) {
     // const res = await fetch(`http://localhost:3000/api/profile`, {
     //     cache: "no-store"
     // })
-    connectDB()
+    await connectDB()
     const profiles = await Profile?.find()?.select("-userId");
     const data = profiles
 

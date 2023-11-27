@@ -9,6 +9,7 @@ import Loaders from '@/loading/Loaders';
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { z } from "zod";
+import FormInput from '@/module/FormInput';
 
 const schema = z.object({
     email: z.string().min(1, { message: "لطفا ایمیل را وارد کنید" }).email({ message: "لطفا ایمیل معتبر وارد کنید" }),
@@ -28,10 +29,9 @@ const SignupPage = () => {
         register,
         handleSubmit,
         watch,
-
         formState: { errors },
 
-    } = useForm({ resolver: zodResolver(schema) })
+    } = useForm({ resolver: zodResolver(schema),mode:"onSubmit" })
 
 
     const router = useRouter()
@@ -42,13 +42,7 @@ const SignupPage = () => {
     const onSubmit = async (data) => {
 
         const { email, password, confirmPassword } = data
-
-
-
-
         setIsLoading(true)
-
-
         if (password !== confirmPassword) {
             toast.error("رمز و تکرار ان برار نیست")
             setIsLoading(false)
@@ -71,59 +65,21 @@ const SignupPage = () => {
             toast.error(dataForm.error)
         }
     }
-  
+
 
     return (
         <div className={styles.form}>
             <h4 className='!text-slate-800 z-30'>فرم ثبت نام</h4>
 
             <form autoComplete="new-password" onSubmit={handleSubmit(onSubmit)} action="/form">
+                <FormInput register={{ ...register("email")}} 
+                  errors={errors} watch={watch}  name={"email"}  type={"text"}  id={"email"} title={"ایمیل"}  />
 
-                <div className={`formControl !w-full ${errors?.email && "error"}`} >
-                    <input style={{ background: "#fff" }}
-                        className="inp"
-                        {...register("email")}
-                        name={"email"} // assign name prop
-                        type="text"
-                        id="email"
-                        autoCapitalize="none"
-                        autoCorrect="false"
-                        aria-disabled="false"
-                        autoComplete="on" />
-                    <label className={`textLabel ${watch("email") && "labeltop"}`} htmlFor="email">ایمیل</label>
-                    {/* <i className={errors.emailError ? "font-icons-aw-clear" : "font-icons-aw"}>{(errors.emailError && touched.email) && Xmark}{(!errors.emailError && touched.email) && CircleCheck}</i> */}
-                    <small className="er">{errors?.email?.message}</small>
+                <FormInput register={{ ...register("password")}} 
+                  errors={errors} watch={watch}  name={"password"}  type={"password"}  id={"password"} title={"رمز عبور"}  />
 
-                </div>
-
-                <div className={`formControl  !w-full ${errors?.password && "error"}`} >
-                    <input style={{ background: "#fff" }}
-                        className="inp"
-                        {...register("password")}
-                        name={"password"} // assign name prop
-                        type="password"
-                        autoCapitalize="none"
-                        id="password"
-                        autoComplete="new-password" />
-                    <label className={`textLabel ${watch("password") && "labeltop"}`} htmlFor="password">رمز عبور</label>
-                    {/* <i className={errors.emailError ? "font-icons-aw-clear" : "font-icons-aw"}>{(errors.emailError && touched.email) && Xmark}{(!errors.emailError && touched.email) && CircleCheck}</i> */}
-                    <small className="er">{errors?.password?.message}</small>
-
-                </div>
-                <div className={`formControl !w-full ${errors?.confirmPassword && "error"}`} >
-                    <input style={{ background: "#fff" }}
-                        className="inp"
-                        {...register("confirmPassword")}
-                        name={"confirmPassword"} // assign name prop
-                        type="password"
-                        autoCapitalize="none"
-                        id="confirmPassword"
-                        autoComplete="off" />
-                    <label className={`textLabel ${watch("confirmPassword") && "labeltop"}`} htmlFor="confirmPassword">تکرار رمز عبور</label>
-                    {/* <i className={errors.emailError ? "font-icons-aw-clear" : "font-icons-aw"}>{(errors.emailError && touched.email) && Xmark}{(!errors.emailError && touched.email) && CircleCheck}</i> */}
-                    <small className="er">{errors?.confirmPassword?.message}</small>
-
-                </div>
+                <FormInput register={{ ...register("confirmPassword")}} 
+                  errors={errors} watch={watch}  name={"confirmPassword"}  type={"password"}  id={"confirmPassword"} title={"تکرار رمز عبور"}  />
 
                 {isLoading ? <Loaders type /> :
                     // <button className={email.length <= 0 || password.length <= 0 || rePassword.length <= 0 ? "pointer-events-none opacity-50" : ""} onClick={signupHandler} type='submit'>ثبت نام</button>

@@ -7,7 +7,7 @@ import { getServerSession } from 'next-auth';
 import React from 'react';
 
 const MyProfiles = async () => {
-    await connectDB();
+ 
     const session = await getServerSession(authOptions);
   
     const [user]= await User.aggregate([

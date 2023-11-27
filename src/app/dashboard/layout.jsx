@@ -3,11 +3,12 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import User from "@/models/User";
+import connectDB from "@/utils/connectDB";
 
 
 
 const layout = async ({ children }) => {
-
+  await connectDB()
   const sessions = await getServerSession(authOptions);
 
   const email = sessions?.user?.email;
