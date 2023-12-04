@@ -22,7 +22,7 @@ const TextInput = ({
 
       {textarea ?
 
-        <div className="formControl">
+        <div className="formControl ">
           <textarea
             className="inp"
             type="text"

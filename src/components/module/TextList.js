@@ -4,23 +4,21 @@ import styles from "@/module/TextList.module.css";
 
 function TextList({ title, profileData, setProfileData, type }) {
   const changeHandler = (e, index) => {
-const {value}=e.target 
-const list =[...profileData?.[type]]
-list[index]=value
-setProfileData({...profileData,[type]:list})
+    const { value } = e.target
+    const list = [...profileData?.[type]]
+    list[index] = value
+    setProfileData({ ...profileData, [type]: list })
   };
 
   const addHandler = () => {
-    setProfileData({
-      ...profileData,
-      [type]: [...profileData?.[type], ""]
-    })
+    setProfileData({ ...profileData, [type]: [...profileData[type], ''] })
 
   };
 
+
+
   const deleteHandler = (index) => {
     const list = [...profileData?.[type]];
-
     list.splice(index, 1);
     //or  
     //  const updatedList = list.filter((item, i) => i !== index);

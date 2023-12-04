@@ -9,7 +9,7 @@ import Loaders from "@/loading/Loaders";
 
 function Header() {
   const { data, status } = useSession();
-  
+
   return (
     <header className={styles.header}>
       <div>
